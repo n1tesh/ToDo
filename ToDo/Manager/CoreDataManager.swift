@@ -99,11 +99,14 @@ extension CoreDataManager{
         }
     }
     
-    func updateTaskIsCompleted(_ task: Task, isComplted: Bool, completion: @escaping (Result<Bool,Error>)-> Void) {
-        task.isCompleted = isComplted
+    func updateTaskIsCompleted(_ task: Task, title: String, taskDescription: String?, isCompleted: Bool, date: Date?, completion: @escaping (Result<Task,Error>)-> Void) {
+        task.title = title
+        task.taskDescription = taskDescription
+        task.isCompleted = isCompleted
+        task.date = date
         do {
             try moc.save()
-            completion(.success(true))
+            completion(.success(task))
         } catch {
             moc.rollback()
             print("update failed \(error)")

@@ -48,6 +48,13 @@ final class HomeViewModel{
         allTasks.append(task)
         self.updateSelectedSegmentIndex(index: selectedSegmentIndex)
     }
+    
+    func didUpdateTask(task: Task){
+        if let index = allTasks.indices.first{self.allTasks[$0].objectID == task.objectID}{
+            allTasks[index] = task
+            self.updateSelectedSegmentIndex(index: selectedSegmentIndex)
+        }
+    }
      
     func getAllSegments() -> [TaskListTypes]{
         TaskListTypes.allCases

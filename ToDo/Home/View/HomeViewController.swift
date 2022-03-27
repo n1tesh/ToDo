@@ -101,6 +101,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let task = self.tasks[indexPath.row]
+        if let addTaskVC = storyboard?.instantiateViewController(withIdentifier: "AddTaskViewController") as? AddTaskViewController{
+            addTaskVC.viewType = .edit
+            addTaskVC.selectedTask = task
+            addTaskVC.delegate = self
+            let navigationController = UINavigationController(rootViewController: addTaskVC)
+            navigationController.modalPresentationStyle = .custom
+            self.present(navigationController, animated: true, completion: nil)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true
     }
@@ -121,6 +133,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
 }
 
 extension HomeViewController: AddTaskViewControllerDelegate{
+    
+    func didUpdateTask(task: Task) {
+        viewModel.didUpdateTask(task: task)
+        viewModel.selectedSegmentIndex = self.taskListSegmentControl.selectedSegmentIndex
+    }
     
     func didAddTask(task: Task) {
         viewModel.didAddTask(task: task)

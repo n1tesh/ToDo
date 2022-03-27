@@ -10,6 +10,8 @@ import UIKit
 
 protocol AddTaskViewControllerDelegate: AnyObject {
     func didAddTask(task: Task)
+    func didUpdateTask(task: Task)
+
 }
 
 class AddTaskViewController: UIViewController {
@@ -20,9 +22,18 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var taskDatePicker: UIDatePicker!
     
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var updateButton: UIButton!
     weak var delegate: AddTaskViewControllerDelegate?
     private var viewModel = TaskViewModel()
-
+    
+    enum AddTaskViewType {
+        case edit
+        case add
+    }
+    
+    var viewType: AddTaskViewType = .add
+    var selectedTask: Task?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +45,22 @@ class AddTaskViewController: UIViewController {
         self.viewModel.canSubmit.bind {[weak self] canSubmit in
             guard let weakSelf = self else { return }
             weakSelf.submitButton.isEnabled = canSubmit
+            weakSelf.updateButton.isEnabled = canSubmit
+
         }
-
-
+        
+        if viewType == .edit, let selectedTask = self.selectedTask {
+            viewModel.setSelectedTask(task: selectedTask)
+            self.taskTitleTextField.text = viewModel.taskTitle
+            self.taskDescriptionTextField.text = viewModel.taskDescription
+            self.taskDatePicker.date = viewModel.selectedDate
+            self.submitButton.setTitle("Update", for: .normal)
+            self.updateButton.isHidden = false
+            self.submitButton.isHidden = true
+        }
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -52,6 +75,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func submitButtonAction(_ sender: UIButton) {
+        
         self.viewModel.addTask {[weak self] result in
             guard let weakSelf = self else{
                 return
@@ -63,7 +87,21 @@ class AddTaskViewController: UIViewController {
             case .failure(_):
                 break
             }
-            
+        }
+        
+    }
+    @IBAction func updateButtonAction(_ sender: UIButton) {
+        self.viewModel.updateTask {[weak self] result in
+            guard let weakSelf = self else{
+                return
+            }
+            switch result{
+            case .success(let task):
+                weakSelf.delegate?.didUpdateTask(task: task)
+                weakSelf.dismiss(animated: true)
+            case .failure(_):
+                break
+            }
         }
     }
     

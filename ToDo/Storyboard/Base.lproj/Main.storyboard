@@ -176,23 +176,36 @@
                                             </datePicker>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24i-R5-xOQ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="1XC-Ef-Kx1">
                                         <rect key="frame" x="344" y="150" width="50" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="Add"/>
-                                        <connections>
-                                            <action selector="submitButtonAction:" destination="ZqR-7n-G1J" eventType="touchUpInside" id="2RS-4S-uAh"/>
-                                        </connections>
-                                    </button>
+                                        <subviews>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SA3-pZ-bYY">
+                                                <rect key="frame" x="0.0" y="0.0" width="0.0" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Update"/>
+                                                <connections>
+                                                    <action selector="updateButtonAction:" destination="ZqR-7n-G1J" eventType="touchUpInside" id="NPB-GG-zh7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24i-R5-xOQ">
+                                                <rect key="frame" x="0.0" y="0.0" width="50" height="31"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Add"/>
+                                                <connections>
+                                                    <action selector="submitButtonAction:" destination="ZqR-7n-G1J" eventType="touchUpInside" id="2RS-4S-uAh"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstItem="24i-R5-xOQ" firstAttribute="top" secondItem="bmE-Ye-6Wt" secondAttribute="bottom" constant="8" symbolic="YES" id="CO4-IG-5Rc"/>
+                                    <constraint firstAttribute="bottom" secondItem="1XC-Ef-Kx1" secondAttribute="bottom" constant="20" symbolic="YES" id="9FA-qT-ube"/>
                                     <constraint firstItem="bmE-Ye-6Wt" firstAttribute="top" secondItem="gCz-5H-pau" secondAttribute="top" constant="8" id="IiM-2x-seV"/>
-                                    <constraint firstAttribute="trailing" secondItem="24i-R5-xOQ" secondAttribute="trailing" constant="20" symbolic="YES" id="axJ-7i-lG3"/>
+                                    <constraint firstItem="1XC-Ef-Kx1" firstAttribute="top" secondItem="bmE-Ye-6Wt" secondAttribute="bottom" constant="8" symbolic="YES" id="WJR-1s-hbq"/>
+                                    <constraint firstAttribute="trailing" secondItem="1XC-Ef-Kx1" secondAttribute="trailing" constant="20" symbolic="YES" id="WZl-pW-I3S"/>
                                     <constraint firstAttribute="trailing" secondItem="bmE-Ye-6Wt" secondAttribute="trailing" constant="8" id="bzV-pc-U1b"/>
                                     <constraint firstItem="bmE-Ye-6Wt" firstAttribute="leading" secondItem="gCz-5H-pau" secondAttribute="leading" constant="8" id="mVy-Bo-m3t"/>
-                                    <constraint firstAttribute="bottom" secondItem="24i-R5-xOQ" secondAttribute="bottom" constant="20" symbolic="YES" id="oCW-dA-3IN"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -220,6 +233,7 @@
                         <outlet property="taskDatePicker" destination="X0Q-NX-ueW" id="xcE-i6-KOf"/>
                         <outlet property="taskDescriptionTextField" destination="Rxp-4k-qUe" id="jLO-Nn-hf5"/>
                         <outlet property="taskTitleTextField" destination="Ggn-UT-ucH" id="Nb5-aL-HaO"/>
+                        <outlet property="updateButton" destination="SA3-pZ-bYY" id="Vrx-yw-eh9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ivp-in-ZGy" userLabel="First Responder" sceneMemberID="firstResponder"/>
