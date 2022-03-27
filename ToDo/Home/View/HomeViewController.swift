@@ -14,6 +14,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var tasksTableView: UITableView!
     private var viewModel: HomeViewModel = HomeViewModel()
     
+    @IBOutlet weak var addTaskButton: UIButton!
     fileprivate var tasks: [Task] = []{
         didSet{
             DispatchQueue.main.async {
@@ -25,21 +26,21 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        CoreDataManager.shared.addTask(title: "Task 2", taskDescription: "Task 2 Description", isCompleted: false, date: Date()) { _ in
-//
-//        }
-        
         self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "To Do List"
-        NotificationCenter.default.addObserver(self, selector:#selector(self.calendarDayDidChange(_:)), name:NSNotification.Name.NSCalendarDayChanged, object:nil)
-        let addBarButtonItem = UIBarButtonItem(title: "Add", style: .done, target: self, action: #selector(addTask))
-        self.navigationItem.rightBarButtonItem  = addBarButtonItem
+        self.addTaskButton.layer.cornerRadius = self.addTaskButton.frame.size.width/2
+        self.addTaskButton.clipsToBounds = true
+        
         self.setUpSegmentControls()
         self.bind()
         
+        NotificationCenter.default.addObserver(self, selector:#selector(self.calendarDayDidChange(_:)), name:NSNotification.Name.NSCalendarDayChanged, object:nil)
+                
     }
     
-    @objc private func addTask(){
+
+    
+    @IBAction func addTaskButtonAction(_ sender: Any) {
         if let addTaskVC = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController{
             addTaskVC.delegate = self
             let navigationController = UINavigationController(rootViewController: addTaskVC)
@@ -51,6 +52,7 @@ class HomeViewController: UIViewController {
     @IBAction func taskListSegmentControlValueChanged(_ sender: UISegmentedControl) {
         self.viewModel.selectedSegmentIndex = sender.selectedSegmentIndex
     }
+    
     
     @objc private func calendarDayDidChange(_ notification : NSNotification) {
         DispatchQueue.main.async {

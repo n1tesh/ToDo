@@ -74,21 +74,40 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cno-XE-1Xk"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Ad-FW-kKF">
+                                <rect key="frame" x="334" y="758" width="60" height="60"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="3Ad-FW-kKF" secondAttribute="height" multiplier="1:1" id="6qj-24-m8L"/>
+                                    <constraint firstAttribute="width" constant="60" id="u1j-Lp-3SG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="39"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="+">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addTaskButtonAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5IT-Ez-Hek"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3Ad-FW-kKF" secondAttribute="trailing" constant="20" id="2jR-nx-ULA"/>
                             <constraint firstItem="h1J-0y-BqH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="7p3-QL-FNd"/>
                             <constraint firstItem="0uO-6S-hNl" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RnJ-xN-EU8"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0uO-6S-hNl" secondAttribute="trailing" id="SGT-eU-OGe"/>
                             <constraint firstAttribute="bottom" secondItem="0uO-6S-hNl" secondAttribute="bottom" id="TtZ-42-h38"/>
                             <constraint firstItem="h1J-0y-BqH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="o38-8D-Vbe"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="h1J-0y-BqH" secondAttribute="trailing" id="oeP-2g-20b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3Ad-FW-kKF" secondAttribute="bottom" constant="44" id="p9b-EU-icg"/>
                             <constraint firstItem="0uO-6S-hNl" firstAttribute="top" secondItem="h1J-0y-BqH" secondAttribute="bottom" constant="8" symbolic="YES" id="t9c-YW-Zvf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u1Q-Wi-EXj"/>
                     <connections>
+                        <outlet property="addTaskButton" destination="3Ad-FW-kKF" id="bko-gt-7HC"/>
                         <outlet property="taskListSegmentControl" destination="h1J-0y-BqH" id="zYC-NM-6P9"/>
                         <outlet property="tasksTableView" destination="0uO-6S-hNl" id="I7E-iE-N84"/>
                     </connections>
