@@ -8,6 +8,7 @@
 import Foundation
 
 struct TaskViewModel {
+    
     private(set) var canSubmit: Box<Bool> = Box(false)
     
     var taskTitle: String = ""{

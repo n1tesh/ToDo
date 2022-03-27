@@ -38,10 +38,8 @@ class HomeViewController: UIViewController {
                 
     }
     
-
-    
     @IBAction func addTaskButtonAction(_ sender: Any) {
-        if let addTaskVC = storyboard?.instantiateViewController(withIdentifier: "AddViewController") as? AddViewController{
+        if let addTaskVC = storyboard?.instantiateViewController(withIdentifier: "AddTaskViewController") as? AddTaskViewController{
             addTaskVC.delegate = self
             let navigationController = UINavigationController(rootViewController: addTaskVC)
             navigationController.modalPresentationStyle = .custom
@@ -52,7 +50,6 @@ class HomeViewController: UIViewController {
     @IBAction func taskListSegmentControlValueChanged(_ sender: UISegmentedControl) {
         self.viewModel.selectedSegmentIndex = sender.selectedSegmentIndex
     }
-    
     
     @objc private func calendarDayDidChange(_ notification : NSNotification) {
         DispatchQueue.main.async {
@@ -123,7 +120,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource{
     }
 }
 
-extension HomeViewController: AddViewControllerDelegate{
+extension HomeViewController: AddTaskViewControllerDelegate{
     
     func didAddTask(task: Task) {
         viewModel.didAddTask(task: task)

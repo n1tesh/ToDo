@@ -1,5 +1,5 @@
 //
-//  AddViewController.swift
+//  AddTaskViewController.swift
 //  ToDo
 //
 //  Created by Nitesh on 27/03/22.
@@ -8,11 +8,11 @@
 import UIKit
 
 
-protocol AddViewControllerDelegate: AnyObject {
+protocol AddTaskViewControllerDelegate: AnyObject {
     func didAddTask(task: Task)
 }
 
-class AddViewController: UIViewController {
+class AddTaskViewController: UIViewController {
     
     @IBOutlet weak var addTaskView: UIView!
     @IBOutlet weak var taskTitleTextField: UITextField!
@@ -20,7 +20,7 @@ class AddViewController: UIViewController {
     @IBOutlet weak var taskDatePicker: UIDatePicker!
     
     @IBOutlet weak var submitButton: UIButton!
-    weak var delegate: AddViewControllerDelegate?
+    weak var delegate: AddTaskViewControllerDelegate?
     private var viewModel = TaskViewModel()
 
     override func viewDidLoad() {
@@ -86,7 +86,7 @@ class AddViewController: UIViewController {
     */
 
 }
-extension AddViewController: UITextFieldDelegate{
+extension AddTaskViewController: UITextFieldDelegate{
     
     func textFieldDidChangeSelection(_ textField: UITextField) {
         if textField == taskTitleTextField {

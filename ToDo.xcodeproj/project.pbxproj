@@ -36,8 +36,8 @@
 		6D857B5F27F0560900FC018A /* UITableViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B5D27F0560900FC018A /* UITableViewExtensions.swift */; };
 		6D857B6D27F0733900FC018A /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B6C27F0733900FC018A /* HomeViewModelTests.swift */; };
 		6D857B6E27F0739600FC018A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D0FD14627EF4CED00DF6CFF /* HomeViewModel.swift */; };
-		6D857B7027F0857E00FC018A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B6F27F0857E00FC018A /* AddViewController.swift */; };
-		6D857B7127F0857E00FC018A /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B6F27F0857E00FC018A /* AddViewController.swift */; };
+		6D857B7027F0857E00FC018A /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B6F27F0857E00FC018A /* AddTaskViewController.swift */; };
+		6D857B7127F0857E00FC018A /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B6F27F0857E00FC018A /* AddTaskViewController.swift */; };
 		6D857B7327F08B7A00FC018A /* KeyboardLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B7227F08B7A00FC018A /* KeyboardLayoutConstraint.swift */; };
 		6D857B7627F08DFE00FC018A /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D857B7527F08DFE00FC018A /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -84,7 +84,7 @@
 		6D857B3727F0500300FC018A /* DateExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensions.swift; sourceTree = "<group>"; };
 		6D857B5D27F0560900FC018A /* UITableViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewExtensions.swift; sourceTree = "<group>"; };
 		6D857B6C27F0733900FC018A /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
-		6D857B6F27F0857E00FC018A /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		6D857B6F27F0857E00FC018A /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		6D857B7227F08B7A00FC018A /* KeyboardLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardLayoutConstraint.swift; sourceTree = "<group>"; };
 		6D857B7527F08DFE00FC018A /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -252,7 +252,7 @@
 		6D857B6927F0657600FC018A /* View */ = {
 			isa = PBXGroup;
 			children = (
-				6D857B6F27F0857E00FC018A /* AddViewController.swift */,
+				6D857B6F27F0857E00FC018A /* AddTaskViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -416,7 +416,7 @@
 			files = (
 				6D857B2B27F04C2300FC018A /* Box.swift in Sources */,
 				6D442B1327EC984800D730D8 /* HomeViewController.swift in Sources */,
-				6D857B7027F0857E00FC018A /* AddViewController.swift in Sources */,
+				6D857B7027F0857E00FC018A /* AddTaskViewController.swift in Sources */,
 				6D857B2E27F04CE200FC018A /* TaskTableViewCell.swift in Sources */,
 				6D442B0F27EC984800D730D8 /* AppDelegate.swift in Sources */,
 				6D857B3527F04EAB00FC018A /* UIViewControllerExtensions.swift in Sources */,
@@ -438,7 +438,7 @@
 			files = (
 				6D0FD15427EF585100DF6CFF /* AppDelegate.swift in Sources */,
 				6D857B3627F04EAB00FC018A /* UIViewControllerExtensions.swift in Sources */,
-				6D857B7127F0857E00FC018A /* AddViewController.swift in Sources */,
+				6D857B7127F0857E00FC018A /* AddTaskViewController.swift in Sources */,
 				6D0FD15127EF584900DF6CFF /* ToDo.xcdatamodeld in Sources */,
 				6D857B5F27F0560900FC018A /* UITableViewExtensions.swift in Sources */,
 				6D857B3327F04E8E00FC018A /* StringExtensions.swift in Sources */,

@@ -137,7 +137,7 @@
         <!--Add Task-->
         <scene sceneID="Au9-ec-N62">
             <objects>
-                <viewController storyboardIdentifier="AddViewController" title="Add Task" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZqR-7n-G1J" customClass="AddViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddTaskViewController" title="Add Task" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZqR-7n-G1J" customClass="AddTaskViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HX5-2b-mh6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
